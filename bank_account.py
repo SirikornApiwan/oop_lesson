@@ -26,6 +26,14 @@ class AccountDB:
         for account in self.account_database:
             s += str(account) + ", "
         return s
+    
+    def delete_account(self, account_num):
+        index = self.__search_private(account_num)
+        if index != -1:
+            print("Deleting account:", self.account_database[index])
+            del self.account_database[index]
+        else:
+            print(account_num, "invalid account number; nothing to be deleted.")
         
 class Account:
     def __init__(self, num, type, account_name, balance):
@@ -61,5 +69,6 @@ my_account_DB.search_public("0003").deposit(50)
 print(my_account_DB)
 my_account_DB.search_public("0003").withdraw(100)
 print(my_account_DB)
-my_account_DB.search_public("0010").deposit(50)
-print(my_account_DB)
+# my_account_DB.search_public("0010").deposit(50)
+# print(my_account_DB)
+my_account_DB.delete_account("0001")
