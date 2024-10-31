@@ -15,7 +15,7 @@ with open(os.path.join(__location__, 'Countries.csv')) as f:
     for r in rows:
         countries.append(dict(r))
 
-# Print the average temperature of all the cities
+
 print("The average temperature of all the cities:")
 temps = []
 for city in cities:
@@ -23,7 +23,7 @@ for city in cities:
 print(sum(temps)/len(temps))
 print()
 
-# Print all cities in Italy
+
 cities_temp = []
 my_country = 'Italy'
 for city in cities:
@@ -33,7 +33,7 @@ print("All the cities in", my_country, ":")
 print(cities_temp)
 print()
 
-# Print the average temperature for all the cities in Italy
+
 temps = []
 my_country = 'Italy'
 for city in cities:
@@ -43,7 +43,7 @@ print("The average temperature of all the cities in", my_country, ":")
 print(sum(temps)/len(temps))
 print()
 
-# Print the max temperature for all the cities in Italy
+
 temps = []
 my_country = 'Italy'
 for city in cities:
@@ -53,7 +53,7 @@ print("The max temperature of all the cities in", my_country, ":")
 print(max(temps))
 print()
 
-# Print the min temperature for all the cities in Italy
+
 temps = []
 my_country = 'Italy'
 for city in cities:
@@ -62,6 +62,22 @@ for city in cities:
 print("The min temperature of all the cities in", my_country, ":")
 print(min(temps))
 print()
+
+
+def filter(condition, dict_list):
+    filtered_list = []
+    for item in dict_list:
+        if condition(item):
+            filtered_list.append(item)
+    return filtered_list
+
+x = filter(lambda x: float(x['latitude']) >= 60.0, cities)
+for item in x:
+    print(item)
+
+def aggregate(aggregation_key, aggregation_function, dict_list):
+    
+    pass
 
 # Let's write code to
 # - print the average temperature for all the cities in Italy
